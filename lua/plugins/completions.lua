@@ -1,6 +1,6 @@
 return {
   {
-    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp"
   },
   {
     "L3MON4D3/LuaSnip",
@@ -8,6 +8,8 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
     },
+    version = "v2.*",
+    build = "make install_jsregexp"
   },
   {
     "hrsh7th/nvim-cmp",
@@ -18,7 +20,7 @@ return {
       cmp.setup({
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+            require("luasnip").lsp_expand(args.body)
           end,
         },
         window = {
@@ -33,8 +35,8 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim-lsp" },
-          { name = "luasnip" },
+          { name = "nvim_lsp" },
+          { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },
         }),
